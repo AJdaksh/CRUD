@@ -1,0 +1,25 @@
+ <!--   <form Action='{% url 'update' value %}' method='POST' class='d-inline'>
+    {% csrf_token %}
+      <input type='text' value='name'> 
+      <input type='submit' class='btn btn-danger' value='Filter'> 
+    </form>    -->
+
+
+     <form class="d-flex" >
+      <input class="form-control me-2" type="search" placeholder="Type here" name='q' aria-label="Search">
+      <button class="btn btn-outline-success" type="submit">fILTER</button>
+    </form> 
+
+
+
+    <td>
+                  <form Action='{% url 'filte' d.name %}' method='POST' class='d-inline'>
+                    {% csrf_token %} 
+                      <input type='submit' class='btn btn-danger' value='Filter'> 
+                  </form> 
+                </td>
+
+<form Action='{% url 'delete' d.id %}' method='POST' class='d-inline'>
+                        {% csrf_token %}
+                        <input type='submit' class='btn btn-danger' value='delete'> 
+                    </form>

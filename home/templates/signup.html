@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}Signup{% endblock title %}
+
+{% block body %}
+
+<div class='col-sm-4 content-center' style='padding-left:100px; padding-top:20px; margin-left:350px;' my-4>
+    <h3 class='text-center alert alert-info'>SignUp</h3>
+    <div >
+        <form action='' method='POST'>
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type='submit' class='btn btn-success' value='Sign Up'>
+        </form>
+    </div>
+</div>
+{% endblock body %}

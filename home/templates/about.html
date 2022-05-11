@@ -1,0 +1,46 @@
+
+{% extends 'base.html' %}
+
+{% block title %}
+Our Community
+{% endblock title %}
+
+{% block body %}
+<h1> Our Family</h1>
+{% if form %}
+
+<table class="table caption-top">
+    <caption>OUR COMMUNITY</caption>
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Email ID</th>
+        <th scope="col">Mobile</th>
+        <th scope="col">Description</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for d in form %}
+            <tr>
+                <td>{{forloop.counter}}</td>
+                <td>{{d.name}}</td>
+                <td>{{d.email}}</td>
+                <td>{{d.mobile}}</td>
+                <td>{{d.Description}}</td>
+                <td>
+                    <a href='{% url 'update' d.id %}' class='btn btn-warning btn-sm' >Update</a>
+                    <form Action='{% url 'delete' d.id %}' method='POST' class='d-inline'>
+                        {% csrf_token %}
+                        <input type='submit' class='btn btn-danger' value='delete'> 
+                    </form>
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+  </table>
+{% else %} <h3>Sorry,No data available to fetch</h3>
+{% endif %}
+
+{% endblock body %}

@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block title %}profile{% endblock title %}
+
+{% block body %}
+{% if usname %}
+<h2 style='background-color: aqua; text-align: center;'>Welcome, {{usname}}</h2>
+<div>
+    <span style='width:200px;'>
+        <h4  style='text-align: center;'>PROFILE</h4>
+        <table class="table caption-top" style='width: 150px;border-color: chocolate;'>
+            <caption>Personal Details</caption>
+            <thead>
+              <tr>
+                <th scope="row">Username</th>
+                <th scope="row">{{usname}}</th>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Email Id</td>
+                    <td>{{usemail}}</td>
+                </tr>
+                <tr>
+                    <td>Task(total)</td>
+                    <td>---</td>
+                </tr>
+                <tr>
+                    <td>Task(pending)</td>
+                    <td>---</td>
+                </tr>
+            </tbody>
+        </table>
+    </span>
+    <span>
+        
+    </span>
+</div>
+
+{% endif %}
+{% endblock body %}

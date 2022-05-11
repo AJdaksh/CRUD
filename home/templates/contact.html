@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}
+join us
+{% endblock title %}
+
+{% block body %}
+
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li  {% if message.tags %} class=" {{ message.tags }} " {% endif %}> {{ message }} </li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+
+<div class='row'>
+    <div style='bg-colour:black; margin-left:450px; margin-top:20px;'>
+        <h3>WELCOME TO CAREERS360</h3>
+    </div>
+    <div class='col-sm-4 content-center' style='padding-left:100px; padding-top:20px; margin-left:350px;' my-4>
+        <h3 class='text-center alert alert-info'>JOIN US</h3>
+        <div >
+            <form action='' method='POST'>
+            {% csrf_token %}
+            {{form.as_p}}
+            <input type='submit' class='btn btn-success' value='Submit'>
+            </form>
+        </div>
+    </div>
+</div>
+{%endblock body%}

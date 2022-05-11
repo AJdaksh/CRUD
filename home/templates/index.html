@@ -1,0 +1,71 @@
+
+{% extends 'base.html' %}
+
+{% block title %}
+Our Community
+{% endblock title %}
+
+{% block body %}
+<div class='bro' style='width:100%; padding-top:30px;'>
+  <span style="display: flex; width: 260px; display:inline-block; " class='inline'>
+    <form Action='{% url 'filte_i' %}' method= "POST" class="d-flex btn-sm" >
+    {% csrf_token %}
+      <input class="form-control me-2" type="search" placeholder="Filter by ID" name='i' aria-label="Search">
+      <button class="btn btn-outline-success" type="submit">fILTER</button>
+    </form>  
+  </span>
+  <span style="display: flex; width: 260px; display:inline-block; "> 
+    <form Action='{% url 'filte_n' %}' method= "POST" class="d-flex btn-sm" >
+    {% csrf_token %}
+      <input class="form-control me-2" type="search" placeholder="Filter by Name" name='n' aria-label="Search">
+      <button class="btn btn-outline-success" type="submit">fILTER</button>
+    </form>  
+  </span>
+
+  <span style="display: flex; width: 260px; display:inline-block; ">
+    <form Action='{% url 'filte_m' %}' method= "POST" class="d-flex btn-sm" >
+    {% csrf_token %}
+      <input class="form-control me-2" type="search" placeholder="Filter by Mobile" name='m' aria-label="Search">
+      <button class="btn btn-outline-success" type="submit">fILTER</button>
+    </form> 
+  </span> 
+
+  <span style="display: flex; width: 260px; display:inline-block; ">
+    <form Action='{% url 'filte_e' %}' method= "POST" class="d-flex btn-sm inline" >
+    {% csrf_token %}
+      <input class="form-control me-2" type="search" placeholder="Filter by email" name='e' aria-label="Search">
+      <button class="btn btn-outline-success" type="submit">fILTER</button>
+    </form>  
+  </div>
+</span>
+
+{% if form %}
+
+<table class="table caption-top">
+    <caption>OUR COMMUNITY</caption>
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Email ID</th>
+        <th scope="col">Mobile</th>
+        <th scope="col">Description</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for d in form %}
+            <tr>
+                <td>{{d.id}}</td>
+                <td>{{d.name}}</td>
+                <td>{{d.email}}</td>
+                <td>{{d.mobile}}</td>
+                <td>{{d.Description}}</td>
+                
+            </tr>
+        {% endfor %}
+    </tbody>
+  </table>
+{% else %} <h3>Sorry,No data available to fetch</h3>
+{% endif %}
+
+{% endblock body %}
